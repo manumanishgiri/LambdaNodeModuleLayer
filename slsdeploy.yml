@@ -2,7 +2,8 @@ service: lambdanodemodulelayer
 provider:
   name: aws
   region: us-east-1
-  profile: lammbdaserverless
+  profile: lambdaserverless
+  stage: dev
 
   iamRoleStatements:
     - Effect: "Allow"
@@ -21,13 +22,10 @@ provider:
 
 layers:
   lambdanodemodulelayer:
-    path: /
-    name: LambdaNodeModuleLayer
+    path: node_modules
+    name: ${self:provider.stage}
     description: Lambda Layer For Node Module
     compatibleRuntimes:
       - nodejs12.x
     allowedAccounts:
       - '*'
-    package:
-      include:
-        - node_modules/**
