@@ -1,0 +1,39 @@
+service: vcmslambdapreprocess
+provider:
+  name: aws
+  region: us-east-1
+  profile: lammbdaserverless
+  runtime: nodejs12.x
+
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "s3:ListBucket"
+      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
+    - Effect: "Allow"
+      Action:
+        - "s3:PutObject"
+      Resource:
+        Fn::Join:
+          - ""
+          - - "arn:aws:s3:::"
+            - "Ref" : "ServerlessDeploymentBucket"
+            - "/*"
+
+layers:
+  lambdanodemodulelayer:
+    path: /
+    description: Lambda Layer For Node Module
+    compatibleRuntimes:
+      - nodejs12.x
+    package:
+      include:
+        - node_modules/**
+
+package:
+  exclude:
+    - node_modules/**
+    - layers/**
+    - Gruntfile.js
+    - sls*
+    - package*

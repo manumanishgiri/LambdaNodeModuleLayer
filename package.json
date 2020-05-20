@@ -1,0 +1,32 @@
+{
+  "name": "lambdanodemodulelayer",
+  "version": "1.0.0",
+  "description": "Lambda Layer For Node Module",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manumanishgiri/LambdaNodeModuleLayer.git"
+  },
+  "keywords": [
+    "Lambda",
+    "Node.js"
+  ],
+  "author": "Manish Giri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manumanishgiri/LambdaNodeModuleLayer/issues"
+  },
+  "homepage": "https://github.com/manumanishgiri/LambdaNodeModuleLayer#readme",
+  "dependencies": {
+    "aws-sdk": "^2.680.0",
+    "chardet": "^1.1.0",
+    "iconv": "^3.0.0",
+    "moment": "^2.25.3",
+    "mysql": "^2.18.1",
+    "probe-image-size": "^5.0.0",
+    "serverless-offline": "^6.1.5"
+  }
+}
