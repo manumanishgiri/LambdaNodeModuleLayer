@@ -23,6 +23,7 @@ provider:
 layers:
   lambdanodemodulelayer:
     path: layers/NodeLambdaLayer
+    name: LambdaNodeModuleLayer
     description: Lambda Layer For Node Module
     compatibleRuntimes:
       - nodejs12.x
