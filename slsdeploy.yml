@@ -22,10 +22,10 @@ provider:
 
 layers:
   lambdanodemodulelayer:
-    path: node_modules
-    name: LambdaNodeModuleLayer
+    path: layers/NodeLambdaLayer
     description: Lambda Layer For Node Module
     compatibleRuntimes:
       - nodejs12.x
-    allowedAccounts:
-      - '*'
+    package:
+      include:
+        - node_modules/**
