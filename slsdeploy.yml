@@ -5,26 +5,12 @@ provider:
   profile: lambdaserverless
   stage: dev
 
-  iamRoleStatements:
-    - Effect: "Allow"
-      Action:
-        - "s3:ListBucket"
-      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
-    - Effect: "Allow"
-      Action:
-        - "s3:PutObject"
-      Resource:
-        Fn::Join:
-          - ""
-          - - "arn:aws:s3:::"
-            - "Ref" : "ServerlessDeploymentBucket"
-            - "/*"
-
 layers:
   lambdanodemodulelayer:
     path: layers/NodeLambdaLayer
     name: LambdaNodeModuleLayer
     description: Lambda Layer For Node Module
+    retain: true
     compatibleRuntimes:
       - nodejs12.x
     package:
